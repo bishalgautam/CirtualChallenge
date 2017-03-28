@@ -46,6 +46,16 @@ if(!isset($page_title)) {
       #main-content {
         padding: 0 2em;
       }
+     
+      .search-box {
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 10px;
+        width: 70em; 
+        margin: .5em ,.5em ,0.5em , 0.5em;
+        background-color:  #FFFFFF;
+      }
+
     </style>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
