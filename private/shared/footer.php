@@ -3,22 +3,25 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script type="text/javascript">
 
-    $("#search").on("keyup", function() {
-    var value = $(this).val();
+ $("#search").on("keyup", function() {
+    var value = $(this).val().toLowerCase().trim();
 
     $("table tr").each(function(index) {
         if (index != 0) {
 
             $row = $(this);
 
-            var id = $row.find("td:first").text();
-
-            if (id.indexOf(value) != 0) {
-                $(this).hide();
+            $row.find('td').each (function() {
+            var id = $(this).text().toLowerCase();
+            if (id.indexOf(value) !== 0) {
+                $row.hide();
             }
             else {
-                $(this).show();
+                $row.show();
+                return false;
             }
+        });  
+
         }
     });
 })
