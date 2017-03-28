@@ -16,7 +16,7 @@
   
   // Edit a country record
   // Either returns true or an array of errors
-  function update_country($country) {
+  function update_customers($orderstate) {
     global $db;
 
     $errors = validate_country($country);

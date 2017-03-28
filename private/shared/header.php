@@ -46,7 +46,10 @@ if(!isset($page_title)) {
       #main-content {
         padding: 0 2em;
       }
-     
+      .drop-down{
+        width: 12em;
+
+      }
       .search-box {
         -moz-border-radius: 5px;
         -webkit-border-radius: 5px;

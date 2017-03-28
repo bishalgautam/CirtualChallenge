@@ -25,6 +25,27 @@
         }
     });
 })
+
+ $(".drop-down").change(function () {
+           // alert($(".drop-down").val());
+           var state = $(this).val();
+           $row = $(this).closest('tr');           
+           var color = "";
+          
+           if(state == "Done"){
+           		color = "#FFFFFF";
+           }else if(state == "Cancelled"){
+           		color = "#F35C4D";
+           }else if(state == "In Progress"){ 
+           		color = "#D1FBD5";
+           }else {
+           	 	color = "#FFFFFF";
+           }
+
+           $row.closest('tr').css("background-color",color); 
+
+     });
+
 </script>
   </body>
 </html>	
