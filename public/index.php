@@ -31,7 +31,7 @@
 			// populate the values from the database 
 		 while($result = db_fetch_assoc($records)){ ?>
 
-			 <tr style= "backgroud-color:red">
+			 <tr>
 	          <td><?php echo $result['name']; ?></td>
 	          <td><?php echo $result['techinician']; ?></td>
 	          <td><?php echo $result['orderdate']; ?></td>

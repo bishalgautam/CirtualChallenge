@@ -14,32 +14,11 @@
   }
 
   
-  // Edit a country record
-  // Either returns true or an array of errors
+  // update the table for any change in the dropdown options.
   function update_customers($orderstate) {
     global $db;
 
-    $errors = validate_country($country);
-    if (!empty($errors)) {
-      return $errors;
-    }
-
-    $sql = "UPDATE countries SET ";
-    $sql .= "name='" . db_escape($db, $country['name']) . "', ";
-    $sql .= "code='" . db_escape($db, $country['code']) . "' ";
-    $sql .= "WHERE id='" . db_escape($db, $country['id']) . "' ";
-    $sql .= "LIMIT 1;";
-    // For update_country statements, $result is just true/false
-    $result = db_query($db, $sql);
-    if($result) {
-      return true;
-    } else {
-      // The SQL UPDATE statement failed.
-      // Just show the error, not the form
-      echo db_error($db);
-      db_close($db);
-      exit;
-    }
+    
   }
 
   ?>
