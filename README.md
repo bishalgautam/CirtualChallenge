@@ -13,8 +13,8 @@ Time spent: **8** hours spent in total
 
 Describe any challenges encountered while building the app.
 
-* [X]. I spent most of the time to figure out the CSS. I do not have good hands on in CSS so the UI/UX is not very nice.
-* [X]. Due to time constrains I haven't implemented the "Maintain user state across sessions (i.e. changes through the Order State menu persist after refresh or across tabs." If I get time I will try to complete by the deadline. 
+* [X] I spent most of the time to figure out the CSS. I do not have good hands on in CSS so the UI/UX is not very nice.
+* [X] Due to time constrains I haven't implemented the "Maintain user state across sessions (i.e. changes through the Order State menu persist after refresh or across tabs." If I get time I will try to complete by the deadline. 
 
 Thanks 
 Bishal Gautam 
