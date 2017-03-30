@@ -41,10 +41,11 @@
 	          <td > 
 	          	<?php 
 	          		$options = array();
-	          		if(!strcmp($in_progress, $result['orderstate'])){
+	          		$res = $result['orderstate'];
+	          		if(strcasecmp($in_progress, $result['orderstate']) == 0){
 	          			$options[0] =  $cancelled;
 	          			$options[1] =  $done;
-	          		}else if(!strcmp($cancelled, $result['orderstate'])){
+	          		}else if(strcasecmp($cancelled, $result['orderstate']) == 0){
 	          			 $options[0] =  $in_progress;
 	          			 $options[1] =  $done;
 	          		}else{
@@ -53,9 +54,9 @@
 	          		}
 	          	?>
 	          	<select name="select_catalog" id="select_catalog" class="drop-down"> 
-	          		<option value="<?php echo $result['orderstate']; ?>"> <?php echo $result['orderstate']; ?> </option>
-	          		<option value="<?php echo $options[0];?>"> <?php echo $options[0];?> </option>
-	          		<option value="<?php echo $options[1];?>"> <?php echo $options[1];?> </option>
+	          		<option value="<?php echo $result['id']; ?>"> <?php echo $result['orderstate']; ?> </option>
+	          		<option value="<?php echo $result['id'];?>"> <?php echo $options[0];?> </option>
+	          		<option value="<?php echo $result['id'];?>"> <?php echo $options[1];?> </option>
 	          </select></td>
         	</tr>  	 
 		<?php } ?>

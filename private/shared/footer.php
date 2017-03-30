@@ -5,7 +5,7 @@
 
 // wait till all the html tags are populated then change the color of the rows based on the last td child of all tr expecct the first tr(table heading).
 $( document ).ready(function() {
-    console.log( "ready!" );
+    //console.log( "ready!" );
 
     $("table tr").each(function(index){
     	if(index != 0){
@@ -13,14 +13,14 @@ $( document ).ready(function() {
 
     		 var str = $row.find('td:last');
     		//console.log(str.find('option:first').text());
-    		var state = str.find('option:first').text().trim();
-    		console.log(state);
+    		var state = str.find('option:first').text().toLowerCase().trim();
+    		//console.log(state);
 
-    	if(state == "Done"){
+    	if(state == "done"){
            		color = "#FFFFDD";
-           }else if(state == "Cancelled"){
+           }else if(state == "cancelled"){
            		color = "#F35C4D";
-           }else if(state == "In Progress"){ 
+           }else if(state == "in progress"){ 
            		color = "#D1FBD5";
            }else {
            	 	color = "#FFFFFF";
@@ -61,21 +61,38 @@ $( document ).ready(function() {
 
  $(".drop-down").change(function () {
            // alert($(".drop-down").val());
-           var state = $(this).val();
+           //var state = $(this).val().toLowerCase();
+          var state = $(this).children("option").filter(":selected").text()
+          var lower= state.toLowerCase().trim();
+          //console.log(state);
            $row = $(this).closest('tr');           
            var color = "";
           
-           if(state == "Done"){
+           if(lower == "done"){
            		color = "#FFFFDD";
-           }else if(state == "Cancelled"){
+           }else if(lower == "cancelled"){
            		color = "#F35C4D";
-           }else if(state == "In Progress"){ 
+           }else if(lower == "in progress"){ 
            		color = "#D1FBD5";
            }else {
            	 	color = "#FFFFFF";
            }
-
            $row.closest('tr').css("background-color",color); 
+         // state = $(this).children("option").filter(":selected").text().trim();
+
+          var id = $(this).val().trim();
+          //console.log(id);
+      $.ajax({
+        type: "POST",
+        url: "script.php",
+        data: { id:id , state:state},
+        complete: function(data){
+            //data contains the response from the php file.
+            //u can pass it here to the javascript function
+            alert("Updated Successfully");
+
+          }
+        });
 
   });
 

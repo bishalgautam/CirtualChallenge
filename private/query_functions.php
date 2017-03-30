@@ -15,10 +15,22 @@
 
   
   // update the table for any change in the dropdown options.
-  function update_customers($orderstate) {
-    global $db;
-
-    
+  function update_customers($id, $state){
+    global $db; 
+    $sql = "UPDATE customers SET ";
+    $sql .= "orderstate='". $state . "' ";
+    $sql .= "WHERE id='". $id . "' ";
+    $sql .= "LIMIT 1;";  
+    $result = db_query($db, $sql);
+    if($result) {
+      return true;
+    } else {
+      // The SQL UPDATE statement failed.
+      // Just show the error, not the form
+      echo db_error($db);
+      db_close($db);
+      exit;
+    }
   }
 
   ?>
